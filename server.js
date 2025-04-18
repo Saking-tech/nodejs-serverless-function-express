@@ -3,8 +3,9 @@ const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http, {
     cors: {
-        origin: "*",
-        methods: ["GET", "POST"]
+        origin: process.env.CLIENT_URL || '*',
+        methods: ['GET', 'POST'],
+        credentials: true,
     }
 });
 
